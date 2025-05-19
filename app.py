@@ -21,7 +21,10 @@ from gevent.pywsgi import WSGIServer
 app = Flask(__name__)
 
 
-MODEL_PATH = os.path.join(os.path.dirname(__file__), 'models', 'my_model.h5')
+# Model saved with Keras model.save()
+MODEL_PATH = 'my_model.h5'
+
+# Load your trained model
 model = load_model(MODEL_PATH)
 
 #model._make_predict_function()      
