@@ -15,7 +15,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all files (app code, model, etc.)
 COPY . .
-RUN ls -lh /heroku_test_plantDisease/my_model.h5
+RUN ls -lh my_model.h5
 
 # Run the app with gunicorn
 CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
