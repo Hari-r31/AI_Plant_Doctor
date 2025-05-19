@@ -9,11 +9,12 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
-# Copy files
-COPY . .
-
-# Install Python dependencies
+# Copy requirements first, install dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Run your app (change this if needed)
+# Copy all files (app code, model, etc.)
+COPY . .
+
+# Run the app with gunicorn
 CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
