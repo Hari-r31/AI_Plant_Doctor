@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
-WORKDIR /app
+WORKDIR /heroku_test_plantDisease
 
 # Copy requirements first, install dependencies
 COPY requirements.txt .
